@@ -34,7 +34,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Ubah Password</a>
+                                <a href="<?php echo site_url() ?>auth/change_password" class="btn btn-default btn-flat">Ubah Password</a>
                             </div>
                             <div class="pull-right">
                                 <a href="<?php echo site_url() ?>auth/logout" class="btn btn-default btn-flat">Logout</a>
