@@ -51,14 +51,14 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1><?php echo $_caption ?></h1>
-                    <ol class="breadcrumb">
+                    <!-- <ol class="breadcrumb"> -->
                         <!-- <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li> -->
                         <!-- <li class="active">[urisegment[1]]</li> -->
-                        <li class="breadcrumb-item">Dashboard</li>
+                        <!-- <li class="breadcrumb-item">Dashboard</li>
                         <?php foreach ($this->uri->segments as $segment): ?>
                         <li class="breadcrumb-item"><?php echo ucfirst($segment) ?></li>
-                        <?php endforeach; ?>
-                    </ol>
+                        <?php endforeach; ?> -->
+                    <!-- </ol> -->
                 </section>
 
                 <!-- Main content -->
