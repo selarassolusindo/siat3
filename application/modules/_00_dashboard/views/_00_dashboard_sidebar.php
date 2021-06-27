@@ -18,7 +18,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="index.html"><i class="fa fa-circle-o"></i> Company</a></li>
+                    <li><a href="<?php echo site_url() ?>t99_company"><i class="fa fa-circle-o"></i> Company</a></li>
                     <li><a href="index.html"><i class="fa fa-circle-o"></i> User</a></li>
                     <li><a href="index2.html"><i class="fa fa-circle-o"></i> Hak Akses</a></li>
                 </ul>
