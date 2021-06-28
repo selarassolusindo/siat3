@@ -28,7 +28,7 @@ $columnall = implode(',', $column_all);
 $string .="\n\n    // datatables
     function json() {
         \$this->datatables->select('".$columnall."');
-        \$this->datatables->from('".$table_name."')";
+        \$this->datatables->from('".$table_name."');";
         foreach ($all as $row) {
             $string .= "\n\t\tif (isset(\$_POST['".$row['column_name']."']) && \$_POST['".$row['column_name']."'] != '') { \$this->datatables->like('".$row['column_name']."', \$_POST['".$row['column_name']."']); }";
         }

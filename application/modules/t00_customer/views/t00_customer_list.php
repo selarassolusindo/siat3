@@ -90,8 +90,13 @@
                     processing: true,
                     serverSide: true,
                     ajax: {"url": "t00_customer/json", "type": "POST",
-                        "data": function(data) {data.nama = $('#nama').val();data.alamat = $('#alamat').val();data.kota = $('#kota').val();data.contact_person = $('#contact_person').val();data.telepon = $('#telepon').val();
-                            }
+                        "data": function(data) {
+                            data.nama = $('#nama').val();
+                            data.alamat = $('#alamat').val();
+                            data.kota = $('#kota').val();
+                            data.contact_person = $('#contact_person').val();
+                            data.telepon = $('#telepon').val();
+                        }
                     },
                     columns: [
                         {

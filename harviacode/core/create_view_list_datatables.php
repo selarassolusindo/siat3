@@ -109,10 +109,11 @@ $string .= "\t
                     ajax: {\"url\": \"".$c_url."/json\", \"type\": \"POST\",
                         \"data\": function(data) {";
                         foreach ($non_pk as $row) {
-                            $string .= "data." . $row['column_name'] . " = $('#".$row['column_name']."').val();";
+$string .= "
+                            data." . $row['column_name'] . " = $('#".$row['column_name']."').val();";
                         }
 $string .= "
-                            }
+                        }
                     },
                     columns: [
                         {
