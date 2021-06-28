@@ -41,7 +41,7 @@
                 <!-- <?php echo anchor(site_url('t00_customer/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
 		    </div>
         </div>
-        <table class="table table-bordered table-striped" id="mytable">
+        <!-- <table class="table table-bordered table-striped" id="mytable0">
             <thead>
                 <tr>
                     <th width="80px">No</th>
@@ -52,8 +52,34 @@
 				    <th>Telepon</th>
 				    <th width="200px">Action</th>
                 </tr>
-            </thead>	
-        </table>
+            </thead>
+        </table> -->
+
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">Hover Data Table</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="mytable" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Alamat</th>
+                  <th>Kota</th>
+                  <th>Contact Person</th>
+                  <th>Telepon</th>
+                  <!-- <th width="200px">Action</th> -->
+                  <th>Action</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -73,6 +99,11 @@
                 };
 
                 var t = $("#mytable").DataTable({
+                    paging: true,
+                    lengthChange: false,
+                    ordering: true,
+                    info: true,
+                    autoWidth: true,
                     searching: false,
                     initComplete: function() {
                         var api = this.api();
@@ -138,5 +169,6 @@
 
             });
         </script>
+
     <!-- </body>
 </html> -->
