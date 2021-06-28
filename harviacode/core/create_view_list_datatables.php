@@ -69,7 +69,7 @@ foreach ($non_pk as $row) {
 }
 $col_non_pk = implode(',', $column_non_pk);
 
-$string .= "\n\t
+$string .= "\t
         </table>
         <script src=\"<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>\"></script>
         <script src=\"<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>\"></script>
@@ -89,7 +89,8 @@ $string .= "\n\t
                     };
                 };
 
-                var t = $(\"#mytable\").dataTable({
+                var t = $(\"#mytable\").DataTable({
+                    searching: false,
                     initComplete: function() {
                         var api = this.api();
                         $('#mytable_filter input')
@@ -105,7 +106,14 @@ $string .= "\n\t
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {\"url\": \"".$c_url."/json\", \"type\": \"POST\"},
+                    ajax: {\"url\": \"".$c_url."/json\", \"type\": \"POST\",
+                        \"data\": function(data) {";
+                        foreach ($non_pk as $row) {
+                            $string .= "data." . $row['column_name'] . " = $('#".$row['column_name']."').val();";
+                        }
+$string .= "
+                            }
+                    },
                     columns: [
                         {
                             \"data\": \"$pk\",
@@ -117,7 +125,7 @@ $string .= "\n\t
                             \"className\" : \"text-center\"
                         }
                     ],
-                    order: [[0, 'desc']],
+                    order: [[1, 'asc']],
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;
@@ -126,6 +134,23 @@ $string .= "\n\t
                         $('td:eq(0)', row).html(index);
                     }
                 });
+
+                $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
+                const aName = ['', ";
+                foreach ($non_pk as $row) {
+                    $string .= "'" . $row['column_name'] . "', ";
+                }
+$string .= "];
+                $('#mytable thead tr:eq(1) th').each( function (i) {
+                    var title = $(this).text();
+                    if (i != 0) {
+                    $(this).html( '<input type=\"text\" placeholder=\"Search '+title+'\" id=\"'+aName[i]+'\" name=\"'+aName[i]+'\" />' );
+                    $( 'input', this ).on( 'keyup change', function () {
+                        t.draw();
+                    });
+                    }
+                });
+
             });
         </script>
     <!-- </body>
