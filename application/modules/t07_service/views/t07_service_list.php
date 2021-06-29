@@ -29,8 +29,8 @@
     <body> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <!-- <h2 style="margin-top:0px">T06_cost List</h2> -->
-                <?php echo anchor(site_url('t06_cost/create'), 'Tambah', 'class="btn btn-primary"'); ?>
+                <!-- <h2 style="margin-top:0px">T07_service List</h2> -->
+                <?php echo anchor(site_url('t07_service/create'), 'Tambah', 'class="btn btn-primary"'); ?>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 4px"  id="message">
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <!-- <?php echo anchor(site_url('t06_cost/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
+                <!-- <?php echo anchor(site_url('t07_service/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
 		    </div>
         </div>
         <div class="box">
@@ -52,14 +52,13 @@
                     <thead>
                         <tr>
                             <th>No</th>
-							<th>Cost</th>
-							<th>Akun</th>
+							<th>Service</th>
 							<th>Action</th>
                         </tr>
                     </thead>
                 </table>
             </div>
-        </div>
+        </div>	
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -101,19 +100,17 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "t06_cost/json", "type": "POST",
+                    ajax: {"url": "t07_service/json", "type": "POST",
                         "data": function(data) {
-                            data.cost = $('#cost').val();
-                            data.idakun = $('#idakun').val();
+                            data.service = $('#service').val();
                         }
                     },
                     columns: [
                         {
-                            "data": "idcost",
+                            "data": "idservice",
                             "orderable": false
                         },
-						{"data": "cost"},
-						{"data": "idakun"},
+						{"data": "service"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -131,7 +128,7 @@
                 });
 
                 $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-                const aName = ['', 'cost', 'idakun', ''];
+                const aName = ['', 'service', ''];
                 $('#mytable thead tr:eq(1) th').each( function (i) {
                     var title = $(this).text();
                     if (aName[i] == '') {
