@@ -10,7 +10,22 @@
             <?php if ($this->ion_auth->logged_in()) { ?>
 
             <!-- master -->
-            <li class="treeview">
+            <li class="treeview
+            <?php
+            switch ($this->uri->segment(1)) {
+                case 't99_company':
+                case 'auth':
+                case 't00_customer':
+                case 't01_shipper':
+                case 't02_vendor':
+                case 't03_lokasi':
+                case 't04_armada':
+                case 't05_satuan':
+                    echo 'active';
+                    break;
+            }
+            ?>
+            ">
                 <a href="#">
                     <i class="fa fa-files-o"></i> <span>Master</span>
                     <span class="pull-right-container">
@@ -18,13 +33,15 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url() ?>t99_company"><i class="fa fa-circle-o"></i> Company</a></li>
-                    <li><a href="<?php echo site_url() ?>auth"><i class="fa fa-circle-o"></i> User</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't99_company' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t99_company"><i class="fa fa-circle-o"></i> Company</a></li>
+                    <li <?php echo $this->uri->segment(1) == 'auth' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>auth"><i class="fa fa-circle-o"></i> User</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Hak Akses</a></li>
-                    <li><a href="<?php echo site_url() ?>t00_customer"><i class="fa fa-circle-o"></i> Customer</a></li>
-                    <li><a href="<?php echo site_url() ?>t01_shipper"><i class="fa fa-circle-o"></i> Shipper</a></li>
-                    <li><a href="<?php echo site_url() ?>t02_vendor"><i class="fa fa-circle-o"></i> Vendor</a></li>
-                    <li><a href="<?php echo site_url() ?>t03_lokasi"><i class="fa fa-circle-o"></i> Lokasi</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't00_customer' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t00_customer"><i class="fa fa-circle-o"></i> Customer</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't01_shipper' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t01_shipper"><i class="fa fa-circle-o"></i> Shipper</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't02_vendor' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t02_vendor"><i class="fa fa-circle-o"></i> Vendor</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't03_lokasi' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t03_lokasi"><i class="fa fa-circle-o"></i> Lokasi</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't04_armada' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t04_armada"><i class="fa fa-circle-o"></i> Armada</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't05_satuan' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t05_satuan"><i class="fa fa-circle-o"></i> Satuan</a></li>
                 </ul>
             </li>
 
