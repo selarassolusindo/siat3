@@ -21,6 +21,7 @@
                 case 't03_lokasi':
                 case 't04_armada':
                 case 't05_satuan':
+                case 't06_cost':
                     echo 'active';
                     break;
             }
@@ -42,6 +43,7 @@
                     <li <?php echo $this->uri->segment(1) == 't03_lokasi' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t03_lokasi"><i class="fa fa-circle-o"></i> Lokasi</a></li>
                     <li <?php echo $this->uri->segment(1) == 't04_armada' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t04_armada"><i class="fa fa-circle-o"></i> Armada</a></li>
                     <li <?php echo $this->uri->segment(1) == 't05_satuan' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t05_satuan"><i class="fa fa-circle-o"></i> Satuan</a></li>
+                    <li <?php echo $this->uri->segment(1) == 't06_cost' ? 'class="active"' : ''; ?>><a href="<?php echo site_url() ?>t06_cost"><i class="fa fa-circle-o"></i> Cost</a></li>
                 </ul>
             </li>
 
