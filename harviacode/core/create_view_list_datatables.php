@@ -52,16 +52,26 @@ if ($export_pdf == '1') {
 }
 $string .= "\n\t\t    </div>
         </div>
-        <table class=\"table table-bordered table-striped\" id=\"mytable\">
-            <thead>
-                <tr>
-                    <th width=\"80px\">No</th>";
-foreach ($non_pk as $row) {
-    $string .= "\n\t\t\t\t    <th>" . label($row['column_name']) . "</th>";
-}
-$string .= "\n\t\t\t\t    <th width=\"200px\">Action</th>
-                </tr>
-            </thead>";
+        <div class=\"box\">
+            <div class=\"box-body\">
+                <table id=\"mytable\" class=\"table table-bordered table-hover display\" style=\"width: 100%\">
+                    <style media=\"screen\">
+                        thead input {
+                            width: 100%;
+                        }
+                    </style>
+                    <thead>
+                        <tr>
+                            <th>No</th>";
+                            foreach ($non_pk as $row) {
+                                $string .= "\n\t\t\t\t\t\t\t<th>" . label($row['column_name']) . "</th>";
+                            }
+                            $string .= "\n\t\t\t\t\t\t\t<th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>";
 
 $column_non_pk = array();
 foreach ($non_pk as $row) {
@@ -70,7 +80,6 @@ foreach ($non_pk as $row) {
 $col_non_pk = implode(',', $column_non_pk);
 
 $string .= "\t
-        </table>
         <script src=\"<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>\"></script>
         <script src=\"<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>\"></script>
         <script src=\"<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>\"></script>
@@ -90,7 +99,13 @@ $string .= "\t
                 };
 
                 var t = $(\"#mytable\").DataTable({
+                    paging: true,
+                    lengthChange: false,
+                    ordering: true,
+                    info: true,
+                    autoWidth: true,
                     searching: false,
+                    fixedHeader: true,
                     initComplete: function() {
                         var api = this.api();
                         $('#mytable_filter input')
@@ -109,10 +124,10 @@ $string .= "\t
                     ajax: {\"url\": \"".$c_url."/json\", \"type\": \"POST\",
                         \"data\": function(data) {";
                         foreach ($non_pk as $row) {
-$string .= "
+                        $string .= "
                             data." . $row['column_name'] . " = $('#".$row['column_name']."').val();";
                         }
-$string .= "
+                        $string .= "
                         }
                     },
                     columns: [
@@ -141,14 +156,16 @@ $string .= "
                 foreach ($non_pk as $row) {
                     $string .= "'" . $row['column_name'] . "', ";
                 }
-$string .= "];
+                $string .= "''];
                 $('#mytable thead tr:eq(1) th').each( function (i) {
                     var title = $(this).text();
-                    if (i != 0) {
-                    $(this).html( '<input type=\"text\" placeholder=\"Search '+title+'\" id=\"'+aName[i]+'\" name=\"'+aName[i]+'\" />' );
-                    $( 'input', this ).on( 'keyup change', function () {
-                        t.draw();
-                    });
+                    if (aName[i] == '') {
+                        $(this).html( '&nbsp;' );
+                    } else {
+                        $(this).html( '<input type=\"text\" placeholder=\"Search '+title+'\" id=\"'+aName[i]+'\" name=\"'+aName[i]+'\" />' );
+                        $( 'input', this ).on( 'keyup change', function () {
+                            t.draw();
+                        });
                     }
                 });
 
@@ -156,7 +173,6 @@ $string .= "];
         </script>
     <!-- </body>
 </html> -->";
-
 
 $hasil_view_list = createFile($string, $target."views/" . $c_url . "/" . $v_list_file);
 

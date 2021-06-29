@@ -41,45 +41,28 @@
                 <!-- <?php echo anchor(site_url('t00_customer/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
 		    </div>
         </div>
-        <!-- <table class="table table-bordered table-striped" id="mytable0">
-            <thead>
-                <tr>
-                    <th width="80px">No</th>
-				    <th>Nama</th>
-				    <th>Alamat</th>
-				    <th>Kota</th>
-				    <th>Contact Person</th>
-				    <th>Telepon</th>
-				    <th width="200px">Action</th>
-                </tr>
-            </thead>
-        </table> -->
-
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Hover Data Table</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table id="mytable" class="table table-bordered table-hover">
-              <thead>
-              <tr>
-                  <th>No</th>
-                  <th>Nama</th>
-                  <th>Alamat</th>
-                  <th>Kota</th>
-                  <th>Contact Person</th>
-                  <th>Telepon</th>
-                  <!-- <th width="200px">Action</th> -->
-                  <th>Action</th>
-              </tr>
-              </thead>
-            </table>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-
+            <div class="box-body">
+                <table id="mytable" class="table table-bordered table-hover display" style="width: 100%">
+                    <style media="screen">
+                        thead input {
+                            width: 100%;
+                        }
+                    </style>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+							<th>Nama</th>
+							<th>Alamat</th>
+							<th>Kota</th>
+							<th>Contact Person</th>
+							<th>Telepon</th>
+							<th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>	
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -105,6 +88,7 @@
                     info: true,
                     autoWidth: true,
                     searching: false,
+                    fixedHeader: true,
                     initComplete: function() {
                         var api = this.api();
                         $('#mytable_filter input')
@@ -156,19 +140,20 @@
                 });
 
                 $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-                const aName = ['', 'nama', 'alamat', 'kota', 'contact_person', 'telepon', ];
+                const aName = ['', 'nama', 'alamat', 'kota', 'contact_person', 'telepon', ''];
                 $('#mytable thead tr:eq(1) th').each( function (i) {
                     var title = $(this).text();
-                    if (i != 0) {
-                    $(this).html( '<input type="text" placeholder="Search '+title+'" id="'+aName[i]+'" name="'+aName[i]+'" />' );
-                    $( 'input', this ).on( 'keyup change', function () {
-                        t.draw();
-                    });
+                    if (aName[i] == '') {
+                        $(this).html( '&nbsp;' );
+                    } else {
+                        $(this).html( '<input type="text" placeholder="Search '+title+'" id="'+aName[i]+'" name="'+aName[i]+'" />' );
+                        $( 'input', this ).on( 'keyup change', function () {
+                            t.draw();
+                        });
                     }
                 });
 
             });
         </script>
-
     <!-- </body>
 </html> -->

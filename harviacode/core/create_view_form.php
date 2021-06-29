@@ -15,7 +15,7 @@ $string = "<!-- <!doctype html>
         <h2 style=\"margin-top:0px\">".ucfirst($table_name)." <?php echo \$button ?></h2> -->
         <div class=\"box box-info\">
             <div class=\"box-header with-border\">
-                <h3 class=\"box-title\">&nbsp;</h3>
+                <h3 class=\"box-title\"><?php echo \$this->uri->segment(2) == 'create' ? 'Tambah' : 'Ubah' ?></h3>
             </div>
             <form action=\"<?php echo \$action; ?>\" method=\"post\" class=\"form-horizontal\">
                 <div class=\"box-body\">";
