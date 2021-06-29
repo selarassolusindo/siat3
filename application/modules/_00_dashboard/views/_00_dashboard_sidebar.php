@@ -22,6 +22,7 @@
                     <li><a href="<?php echo site_url() ?>auth"><i class="fa fa-circle-o"></i> User</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Hak Akses</a></li>
                     <li><a href="<?php echo site_url() ?>t00_customer"><i class="fa fa-circle-o"></i> Customer</a></li>
+                    <li><a href="<?php echo site_url() ?>t01_shipper"><i class="fa fa-circle-o"></i> Shipper</a></li>
                 </ul>
             </li>
 

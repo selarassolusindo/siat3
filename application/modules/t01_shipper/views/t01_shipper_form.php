@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">T99_company <?php echo $button ?></h2> -->
+        <h2 style="margin-top:0px">T01_shipper <?php echo $button ?></h2> -->
         <div class="box box-info">
             <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $this->uri->segment(2) == 'create' ? 'Tambah' : 'Ubah' ?></h3>
@@ -35,14 +35,26 @@
                             <input type="text" class="form-control" name="kota" id="kota" placeholder="Kota" value="<?php echo $kota; ?>" />
                         </div>
                     </div>
+					<div class="form-group">
+                        <label class="col-sm-2 control-label" for="varchar">Contact Person <?php echo form_error('contact_person') ?></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="contact_person" id="contact_person" placeholder="Contact Person" value="<?php echo $contact_person; ?>" />
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-2 control-label" for="varchar">Telepon <?php echo form_error('telepon') ?></label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="telepon" id="telepon" placeholder="Telepon" value="<?php echo $telepon; ?>" />
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary"><?php echo $button ?></button>
-                    <a href="<?php echo site_url('t99_company') ?>" class="btn btn-default">Batal</a>
+                    <a href="<?php echo site_url('t01_shipper') ?>" class="btn btn-default">Batal</a>
                 </div>
 
-				<input type="hidden" name="idcompany" value="<?php echo $idcompany; ?>" /> 
+				<input type="hidden" name="idshipper" value="<?php echo $idshipper; ?>" /> 
 			</form>
         </div>
     <!-- </body>

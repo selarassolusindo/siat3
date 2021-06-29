@@ -29,8 +29,8 @@
     <body> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <!-- <h2 style="margin-top:0px">T00_customer List</h2> -->
-                <?php echo anchor(site_url('t00_customer/create'), 'Tambah', 'class="btn btn-primary"'); ?>
+                <!-- <h2 style="margin-top:0px">T01_shipper List</h2> -->
+                <?php echo anchor(site_url('t01_shipper/create'), 'Tambah', 'class="btn btn-primary"'); ?>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 4px"  id="message">
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <!-- <?php echo anchor(site_url('t00_customer/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
+                <!-- <?php echo anchor(site_url('t01_shipper/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
 		    </div>
         </div>
         <div class="box">
@@ -62,7 +62,7 @@
                     </thead>
                 </table>
             </div>
-        </div>
+        </div>	
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -104,7 +104,7 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "t00_customer/json", "type": "POST",
+                    ajax: {"url": "t01_shipper/json", "type": "POST",
                         "data": function(data) {
                             data.nama = $('#nama').val();
                             data.alamat = $('#alamat').val();
@@ -115,7 +115,7 @@
                     },
                     columns: [
                         {
-                            "data": "idcustomer",
+                            "data": "idshipper",
                             "orderable": false
                         },
 						{"data": "nama"},
