@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 28, 2021 at 07:37 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: 127.0.0.1
+-- Generation Time: Jun 29, 2021 at 06:55 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.0.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,6 +57,70 @@ INSERT INTO `t00_customer` (`idcustomer`, `nama`, `alamat`, `kota`, `contact_per
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `t01_shipper`
+--
+
+CREATE TABLE `t01_shipper` (
+  `idshipper` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `kota` varchar(50) NOT NULL,
+  `contact_person` varchar(50) NOT NULL,
+  `telepon` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t01_shipper`
+--
+
+INSERT INTO `t01_shipper` (`idshipper`, `nama`, `alamat`, `kota`, `contact_person`, `telepon`) VALUES
+(1, 'PT. KUTAI TIMBER INDONESIA', 'SURABAYA 1', 'SURABAYA', 'SURABAYA', 'SURABAYA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t02_vendor`
+--
+
+CREATE TABLE `t02_vendor` (
+  `idvendor` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `kota` varchar(50) NOT NULL,
+  `contact_person` varchar(50) NOT NULL,
+  `telepon` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t02_vendor`
+--
+
+INSERT INTO `t02_vendor` (`idvendor`, `nama`, `alamat`, `kota`, `contact_person`, `telepon`) VALUES
+(1, 'PT. POS INDONESIA', 'SURABAYA', 'SURABAYA', 'SURABAYA', 'SURABAYA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t03_lokasi`
+--
+
+CREATE TABLE `t03_lokasi` (
+  `idlokasi` int(11) NOT NULL,
+  `lokasi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `t03_lokasi`
+--
+
+INSERT INTO `t03_lokasi` (`idlokasi`, `lokasi`) VALUES
+(1, 'SURABAYA'),
+(2, 'MALANG'),
+(3, 'SEMARANG');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `t90_users`
 --
 
@@ -86,7 +151,7 @@ CREATE TABLE `t90_users` (
 --
 
 INSERT INTO `t90_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$N6mf5BouXofAjV5EllKGa.leXW6NrNK0xvhSD.FCr5RVgDg9W0zYW', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1624838240, 1, 'Admin', 'istrator', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$10$N6mf5BouXofAjV5EllKGa.leXW6NrNK0xvhSD.FCr5RVgDg9W0zYW', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1624972786, 1, 'Admin', 'istrator', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -172,6 +237,24 @@ ALTER TABLE `t00_customer`
   ADD PRIMARY KEY (`idcustomer`);
 
 --
+-- Indexes for table `t01_shipper`
+--
+ALTER TABLE `t01_shipper`
+  ADD PRIMARY KEY (`idshipper`);
+
+--
+-- Indexes for table `t02_vendor`
+--
+ALTER TABLE `t02_vendor`
+  ADD PRIMARY KEY (`idvendor`);
+
+--
+-- Indexes for table `t03_lokasi`
+--
+ALTER TABLE `t03_lokasi`
+  ADD PRIMARY KEY (`idlokasi`);
+
+--
 -- Indexes for table `t90_users`
 --
 ALTER TABLE `t90_users`
@@ -218,6 +301,24 @@ ALTER TABLE `t99_company`
 --
 ALTER TABLE `t00_customer`
   MODIFY `idcustomer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `t01_shipper`
+--
+ALTER TABLE `t01_shipper`
+  MODIFY `idshipper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `t02_vendor`
+--
+ALTER TABLE `t02_vendor`
+  MODIFY `idvendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `t03_lokasi`
+--
+ALTER TABLE `t03_lokasi`
+  MODIFY `idlokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t90_users`

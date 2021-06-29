@@ -23,6 +23,8 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> Hak Akses</a></li>
                     <li><a href="<?php echo site_url() ?>t00_customer"><i class="fa fa-circle-o"></i> Customer</a></li>
                     <li><a href="<?php echo site_url() ?>t01_shipper"><i class="fa fa-circle-o"></i> Shipper</a></li>
+                    <li><a href="<?php echo site_url() ?>t02_vendor"><i class="fa fa-circle-o"></i> Vendor</a></li>
+                    <li><a href="<?php echo site_url() ?>t03_lokasi"><i class="fa fa-circle-o"></i> Lokasi</a></li>
                 </ul>
             </li>
 
